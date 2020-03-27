@@ -11,4 +11,15 @@ public class PieceTest {
         Piece p = new Piece(go);
         assertEquals(p.getLocation(), go);
     }
+
+    @Test
+    public void testSetPieceLocation() {
+        Square go = new Square("Go");
+        Square square5 = new Square("Square 5");
+
+        Piece p = new Piece(go);
+        p.setLocation(square5);
+
+        assertEquals(p.getLocation(), square5);
+    }
 }
