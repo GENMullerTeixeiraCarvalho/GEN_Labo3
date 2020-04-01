@@ -8,7 +8,7 @@ import ch.heigvd.gen.monopoly.board.Board;
 public class Player {
     private static final int NB_DICE = 2;
 
-    protected String name;
+    private String name;
     private Piece piece;
     private Board board;
     private Die[] dice;
