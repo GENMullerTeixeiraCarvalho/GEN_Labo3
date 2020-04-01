@@ -7,6 +7,8 @@ public class SquareTest {
     @Test
     public void testSquareName() {
         Square go = new Square("Go");
+        Square square1 = new Square("Square 1");
         assertEquals("Go", go.getName());
+        assertEquals("Square 1", square1.getName());
     }
 }

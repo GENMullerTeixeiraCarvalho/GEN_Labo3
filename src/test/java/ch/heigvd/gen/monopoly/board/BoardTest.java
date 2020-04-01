@@ -1,33 +1,42 @@
 package ch.heigvd.gen.monopoly.board;
 
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BoardTest {
 
     @Test
-    public void testSquaresName() {
-        Square square = new Square("Go");
+    public void testSquareNameGo() {
+        Square square = new Square("Square 38");
         Board board = new Board();
-        int position = 2;
-        boolean tourFini = false;
         square = board.getSquare(square, 2);
-        for(int i = 0; i < 39; i++){
-            String str = "Square " + position;
+        assertEquals("Go", square.getName());
+    }
+
+    @Test
+    public void testSquaresEvenName() {
+        Square square = new Square("Square 2");
+        Board board = new Board();
+        int squareNumber = 2;
+        for(int i = 0; i < 18; i++){
+            String str = "Square " + squareNumber;
             assertEquals(str, square.getName());
-            if(!tourFini) {
-                position = (position + 2) % 39;
-            }
-            else {
-                position = (position + 2) % 41;
-            }
-            if(position == 1){
-                square = board.getSquare(square, 3);
-                tourFini = true;
-            }
-            else {
-                square = board.getSquare(square, 2);
-            }
+            square = board.getSquare(square, 2);
+            squareNumber += 2;
+        }
+    }
+
+    @Test
+    public void testSquaresOddName() {
+        Square square = new Square("Square 1");
+        Board board = new Board();
+        int squareNumber = 1;
+        for(int i = 0; i < 18; i++){
+            String str = "Square " + squareNumber;
+            assertEquals(str, square.getName());
+            square = board.getSquare(square, 2);
+            squareNumber += 2;
         }
     }
 
@@ -36,6 +45,7 @@ public class BoardTest {
         Square go = new Square("Go");
         Board board = new Board();
         assertEquals("Square 2",board.getSquare(go, 2).getName());
+        assertEquals("Square 10",board.getSquare(go, 10).getName());
     }
 
     @Test
