@@ -34,4 +34,11 @@ public class Board {
         }
         return null;
     }
+
+    public Square getSquare(int position) {
+        if(position < 0 || position > MAX_SQUARES){
+            return null;
+        }
+        return squares[position];
+    }
 }

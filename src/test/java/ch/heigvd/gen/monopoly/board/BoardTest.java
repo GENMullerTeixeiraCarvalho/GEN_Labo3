@@ -7,40 +7,22 @@ public class BoardTest {
 
     @Test
     public void testSquareNameGo() {
-        Square square = new Square("Square 38");
         Board board = new Board();
-        square = board.getSquare(square, 2);
+        Square square = board.getSquare(0);
         assertEquals("Go", square.getName());
     }
 
     @Test
-    public void testSquaresEvenName() {
-        Square square = new Square("Square 2");
+    public void testSquaresName() {
         Board board = new Board();
-        int squareNumber = 2;
-        for(int i = 0; i < 18; i++){
-            String str = "Square " + squareNumber;
-            assertEquals(str, square.getName());
-            square = board.getSquare(square, 2);
-            squareNumber += 2;
+        for(int i = 1; i < 40; i++){
+            String str = "Square " + i;
+            assertEquals(str,  board.getSquare(i).getName());
         }
     }
 
     @Test
-    public void testSquaresOddName() {
-        Square square = new Square("Square 1");
-        Board board = new Board();
-        int squareNumber = 1;
-        for(int i = 0; i < 18; i++){
-            String str = "Square " + squareNumber;
-            assertEquals(str, square.getName());
-            square = board.getSquare(square, 2);
-            squareNumber += 2;
-        }
-    }
-
-    @Test
-    public void TestGoToDesiredSquare() {
+    public void testGoToDesiredSquare() {
         Square go = new Square("Go");
         Board board = new Board();
         assertEquals("Square 2",board.getSquare(go, 2).getName());
@@ -48,7 +30,7 @@ public class BoardTest {
     }
 
     @Test
-    public void TestFaceNotInLimits() {
+    public void testFaceNotInLimits() {
         Square go = new Square("Go");
         Board board = new Board();
         assertNull(board.getSquare(go, 1));
@@ -56,14 +38,14 @@ public class BoardTest {
     }
 
     @Test
-    public void TestSquareNull() {
+    public void testSquareNull() {
         Square go = null;
         Board board = new Board();
         assertNull(board.getSquare(go, 2));
     }
 
     @Test
-    public void TestSquareNotInBoard() {
+    public void testSquareNotInBoard() {
         Square go = new Square("SquareUnknown");
         Board board = new Board();
         assertNull(board.getSquare(go, 2));
