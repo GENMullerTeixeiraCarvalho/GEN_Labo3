@@ -1,7 +1,7 @@
 package ch.heigvd.gen.monopoly;
 
 import ch.heigvd.gen.monopoly.board.square.Square;
-import ch.heigvd.gen.monopoly.pieces.Cup;
+import ch.heigvd.gen.monopoly.pieces.Die;
 import ch.heigvd.gen.monopoly.pieces.Piece;
 import ch.heigvd.gen.monopoly.board.Board;
 
@@ -11,22 +11,24 @@ public class Player {
     private String name;
     private Piece piece;
     private Board board;
-    private Cup cup;
+    private Die[] dice;
     private int cash;
 
-    public Player(String name, Square go, Board board, Cup cup) {
+    public Player(String name, Square go, Board board, Die[] dice) {
         this.name = name;
         this.piece = new Piece(go);
         this.board = board;
-        this.cup = cup;
+        this.dice = dice;
         this.cash = INITIAL_CASH;
     }
 
     public void takeTurn() {
         int fvTot = 0;
 
-        cup.roll();
-        fvTot = cup.getTotal();
+        for (Die d : dice) {
+            d.roll();
+            fvTot += d.getFaceValue();
+        }
 
         Square oldLoc = piece.getLocation();
         Square newLoc = board.getSquare(oldLoc, fvTot);

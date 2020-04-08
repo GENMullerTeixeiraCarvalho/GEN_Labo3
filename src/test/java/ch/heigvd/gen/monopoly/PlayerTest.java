@@ -1,7 +1,8 @@
 package ch.heigvd.gen.monopoly;
 
 import ch.heigvd.gen.monopoly.board.Board;
-import ch.heigvd.gen.monopoly.pieces.Cup;
+import ch.heigvd.gen.monopoly.board.square.Square;
+import ch.heigvd.gen.monopoly.pieces.Die;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -15,9 +16,11 @@ public class PlayerTest {
     @BeforeEach
     public void initPlayer() {
         Board b = new Board();
-        Cup cup = new Cup(2);
+        Die[] dice = new Die[2];
+        dice[0] = new Die();
+        dice[1] = new Die();
 
-        p = new Player("Player0", b.getSquare(0), b, cup);
+        p = new Player("Player0", b.getSquare(0), b, dice);
     }
 
     @Test
