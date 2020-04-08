@@ -1,6 +1,6 @@
 package ch.heigvd.gen.monopoly.pieces;
 
-import ch.heigvd.gen.monopoly.board.Square;
+import ch.heigvd.gen.monopoly.board.square.Square;
 
 public class Piece {
     private Square location;

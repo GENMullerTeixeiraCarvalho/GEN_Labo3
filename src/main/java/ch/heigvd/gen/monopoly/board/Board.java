@@ -1,21 +1,20 @@
 package ch.heigvd.gen.monopoly.board;
 
+import ch.heigvd.gen.monopoly.board.square.*;
+
 public class Board {
     private final static int MAX_SQUARES = 40;
     private Square[] squares = new Square[MAX_SQUARES];
 
     public Board(){
         StringBuilder str = new StringBuilder();
+        squares[0] = new GoSquare();
+        squares[4] = new IncomeTaxSquare();
+        squares[30] = new GoToJailSquare();
+
         for(int i = 0; i < MAX_SQUARES; i++){
-            if(i == 0){
-                    str.append("Go");
-            }
-            else {
-                str.append("Square ");
-                str.append(i);
-            }
-            squares[i] = new Square(str.toString());
-            str.delete(0, str.length());
+            if (squares[i] == null)
+                squares[i] = new RegularSquare(i);
         }
     }
 
