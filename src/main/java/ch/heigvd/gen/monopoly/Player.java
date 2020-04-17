@@ -39,6 +39,8 @@ public class Player {
         return cash;
     }
 
+    public int getNetWorth() { return getCash(); }
+
     public void addCash(int cashToAdd) {
         if (cashToAdd <= 0)
             throw new IllegalArgumentException("cashToAdd must be a positive higher than 0 integer");

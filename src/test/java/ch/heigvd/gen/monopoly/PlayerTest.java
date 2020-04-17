@@ -59,4 +59,11 @@ public class PlayerTest {
 
         assertEquals(p.getCash(), 1500 - amount);
     }
+
+    @Test
+    public void testGetNetWorth() {
+        assertEquals(p.getNetWorth(), 1500);
+        p.removeCash(1000);
+        assertEquals(p.getNetWorth(), 1500 - 1000);
+    }
 }
