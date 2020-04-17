@@ -48,7 +48,7 @@ public class Player {
         this.cash += cashToAdd;
     }
 
-    public void removeCash(int cashToRemove) {
+    public void reduceCash(int cashToRemove) {
         if (cashToRemove <= 0)
             throw new IllegalArgumentException("cashToRemove must be a positive higher than 0 integer");
 

@@ -1,7 +1,6 @@
 package ch.heigvd.gen.monopoly;
 
 import ch.heigvd.gen.monopoly.board.Board;
-import ch.heigvd.gen.monopoly.board.square.Square;
 import ch.heigvd.gen.monopoly.pieces.Die;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -40,7 +39,7 @@ public class PlayerTest {
     @ValueSource (ints = {0, -1, -100})
     public void testInvalidRemoveCash(int amount) {
         assertThrows(IllegalArgumentException.class, () -> {
-            p.removeCash(amount);
+            p.reduceCash(amount);
         });
     }
 
@@ -55,7 +54,7 @@ public class PlayerTest {
     @ParameterizedTest
     @ValueSource (ints = {100, 200, 250, 1500, 2000})
     public void testRemoveCash(int amount) {
-        p.removeCash(amount);
+        p.reduceCash(amount);
 
         assertEquals(p.getCash(), 1500 - amount);
     }
@@ -63,7 +62,7 @@ public class PlayerTest {
     @Test
     public void testGetNetWorth() {
         assertEquals(p.getNetWorth(), 1500);
-        p.removeCash(1000);
+        p.reduceCash(1000);
         assertEquals(p.getNetWorth(), 1500 - 1000);
     }
 }
