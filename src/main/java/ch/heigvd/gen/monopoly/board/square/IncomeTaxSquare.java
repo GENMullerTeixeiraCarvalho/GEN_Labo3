@@ -9,6 +9,7 @@ public class IncomeTaxSquare extends Square {
 
     @Override
     public void landedOn(Player p) {
-
+        int w = p.getNetWorth();
+        p.reduceCash(Math.min(200, (int)(w * 0.1)));
     }
 }

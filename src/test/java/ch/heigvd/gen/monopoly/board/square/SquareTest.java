@@ -46,4 +46,23 @@ public class SquareTest {
         go.landedOn(p);
         assertEquals(p.getCash(), cash);
     }
+
+    @Test
+    public void testIncomeSquareLandedOnPercent() {
+        final int cash = 1500;
+
+        IncomeTaxSquare tax = new IncomeTaxSquare();
+        tax.landedOn(p);
+        assertEquals(p.getCash(), 1500 - (1500 * 0.1));
+    }
+
+    @Test
+    public void testIncomeSquareLandedOnMaxAmount() {
+        p.addCash(1500);
+        final int initialCash = p.getCash();
+
+        IncomeTaxSquare tax = new IncomeTaxSquare();
+        tax.landedOn(p);
+        assertEquals(p.getCash(), initialCash - 200);
+    }
 }
