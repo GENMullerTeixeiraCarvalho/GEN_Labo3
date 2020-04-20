@@ -36,14 +36,19 @@ public class BoardTest {
     @Test
     public void testFaceNotInLimits() {
         Square go = new Square("Go");
-        assertNull(board.getSquare(go, 1));
-        assertNull(board.getSquare(go, 13));
+        assertThrows(IllegalArgumentException.class, () -> {
+            board.getSquare(go,1);
+        });
+        assertThrows(IllegalArgumentException.class, () -> {
+            board.getSquare(go,13);
+        });
     }
 
     @Test
     public void testSquareNull() {
-        Square go = null;
-        assertNull(board.getSquare(go, 2));
+        assertThrows(IllegalArgumentException.class, () -> {
+            board.getSquare(null,2);
+        });
     }
 
     @Test
