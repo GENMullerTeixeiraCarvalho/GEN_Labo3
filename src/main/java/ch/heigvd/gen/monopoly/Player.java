@@ -29,6 +29,9 @@ public class Player {
         this.dice = dice;
     }
 
+    /**
+     * Simulate the turn of the player
+     */
     public void takeTurn() {
         int fvTot = 0;
 
