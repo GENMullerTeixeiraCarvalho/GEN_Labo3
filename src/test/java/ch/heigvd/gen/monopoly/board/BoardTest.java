@@ -34,21 +34,26 @@ public class BoardTest {
     }
 
     @Test
-    public void testFaceNotInLimits() {
+    public void testFaceValueNotInLimits() {
         Square go = new Square("Go");
-        assertNull(board.getSquare(go, 1));
-        assertNull(board.getSquare(go, 13));
+        assertThrows(IllegalArgumentException.class, () -> {
+            board.getSquare(go,1);
+        });
+        assertThrows(IllegalArgumentException.class, () -> {
+            board.getSquare(go,13);
+        });
     }
 
     @Test
     public void testSquareNull() {
-        Square go = null;
-        assertNull(board.getSquare(go, 2));
+        assertThrows(IllegalArgumentException.class, () -> {
+            board.getSquare(null,2);
+        });
     }
 
     @Test
     public void testSquareNotInBoard() {
-        Square go = new Square("SquareUnknown");
-        assertNull(board.getSquare(go, 2));
+        Square unknown = new Square("SquareUnknown");
+        assertNull(board.getSquare(unknown, 2));
     }
 }

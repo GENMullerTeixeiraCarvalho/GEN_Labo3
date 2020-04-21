@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class PieceTest {
+
     @Test
     public void testConstructorPieceLocation() {
         Square go = new Square("Go");
