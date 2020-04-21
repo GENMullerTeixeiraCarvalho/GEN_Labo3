@@ -34,7 +34,7 @@ public class BoardTest {
     }
 
     @Test
-    public void testFaceNotInLimits() {
+    public void testFaceValueNotInLimits() {
         Square go = new Square("Go");
         assertThrows(IllegalArgumentException.class, () -> {
             board.getSquare(go,1);
@@ -53,7 +53,7 @@ public class BoardTest {
 
     @Test
     public void testSquareNotInBoard() {
-        Square go = new Square("SquareUnknown");
-        assertNull(board.getSquare(go, 2));
+        Square unknown = new Square("SquareUnknown");
+        assertNull(board.getSquare(unknown, 2));
     }
 }

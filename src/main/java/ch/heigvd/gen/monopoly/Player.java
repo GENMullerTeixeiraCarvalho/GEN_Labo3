@@ -6,7 +6,7 @@ import ch.heigvd.gen.monopoly.pieces.Piece;
 import ch.heigvd.gen.monopoly.board.Board;
 
 /**
- * Class Player that reprensents the players of a Monopoly game
+ * Class Player that represents the players of a Monopoly game
  * @author Müller Robin, Teixeira Carvalho Stéphane
  */
 public class Player {
@@ -39,14 +39,17 @@ public class Player {
         }
 
         Square oldLoc = piece.getLocation();
-        //Get the new newLocation
-        Square newLoc = board.getSquare(oldLoc, fvTot);
-        if(newLoc == null){
-            System.out.println("Impossible to get the new Square");
-        }
-        else {
-            //Set the new location of the piece
-            piece.setLocation(newLoc);
+        try {
+            //Get the new location of the piece
+            Square newLoc = board.getSquare(oldLoc, fvTot);
+            if (newLoc == null) {
+                System.out.println("Impossible to get the new Square");
+            } else {
+                //Set the new location of the piece
+                piece.setLocation(newLoc);
+            }
+        } catch(IllegalArgumentException ex){
+            System.out.println(ex.toString());
         }
     }
 }

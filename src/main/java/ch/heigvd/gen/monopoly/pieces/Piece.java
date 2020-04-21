@@ -3,7 +3,7 @@ package ch.heigvd.gen.monopoly.pieces;
 import ch.heigvd.gen.monopoly.board.Square;
 
 /**
- * Class Piece that reprresnts the piece in a Monopoly Game.
+ * Class Piece that represents the piece in a Monopoly Game.
  * The piece is represented by its square location
  * @author Müller Robin, Teixeira Carvalho Stéphane
  */
@@ -20,7 +20,7 @@ public class Piece {
 
     /**
      * Get the square where the piece is located
-     * @return a Square that is the locatio of the piece
+     * @return a Square that is the location of the piece
      */
     public Square getLocation() {
         return location;

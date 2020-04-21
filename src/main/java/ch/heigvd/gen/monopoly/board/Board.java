@@ -2,7 +2,7 @@ package ch.heigvd.gen.monopoly.board;
 
 /**
  * Class Board representing the board in the Monopoly Game.
- * Can give the square of the board.
+ * Can give a square of the board.
  * @author Müller Robin, Teixeira Carvalho Stéphane
  */
 public class Board {
@@ -32,9 +32,10 @@ public class Board {
 
     /**
      * Returns the square of destination starting from a square and the number of square to jump
-     * @param oldLoc Square representing the sarting square
+     * @param oldLoc Square representing the starting square
      * @param fvTot int being the number of square to jump
-     * @return a square that is the square of destination or null if parameter is incorrect
+     * @return a square that is the square of destination or null if the square is not found
+     * @throws IllegalArgumentException if the square is null or fvTot isn't between 2 and 12
      */
     public Square getSquare(Square oldLoc, int fvTot) {
         //Verification that parameters are valid
@@ -55,13 +56,14 @@ public class Board {
     }
 
     /**
-     * Overload of the function getSquare to be able to return a square from a postion desired
+     * Overload of the function getSquare to be able to return a square from a position desired
      * @param position int being the position of the wanted square
-     * @return Square in the postion given null if parameters are incorrect
+     * @return Square in the position given null if parameters are incorrect
+     * @throws IllegalArgumentException if the position is negative or higher than MAX_SQUARES
      */
     public Square getSquare(int position) {
         if(position < 0 || position > MAX_SQUARES){
-            return null;
+            throw new IllegalArgumentException("Square cannot be on a negative position(< 0) or higer than " + MAX_SQUARES);
         }
         return squares[position];
     }

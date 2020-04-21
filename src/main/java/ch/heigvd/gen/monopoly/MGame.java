@@ -18,6 +18,7 @@ public class MGame {
     /**
      * Specific constructor of MGame
      * @param nbPlayers int that is the number of players for the game
+     * @throws IllegalArgumentException if the number of players is below 2 or higher than 8
      */
     public MGame(int nbPlayers){
         //Check if the number of players is correct
