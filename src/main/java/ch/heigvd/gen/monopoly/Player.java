@@ -52,4 +52,8 @@ public class Player {
 
         this.cash -= cashToRemove;
     }
+
+    public void setLocation(Square s) {
+        piece.setLocation(s);
+    }
 }

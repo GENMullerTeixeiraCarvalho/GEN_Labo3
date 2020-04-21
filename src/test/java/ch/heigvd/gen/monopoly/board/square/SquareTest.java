@@ -12,8 +12,8 @@ public class SquareTest {
 
     @Test
     public void testJailSquareName() {
-        Square jail = new GoToJailSquare();
-        assertEquals("Jail", jail.getName());
+        Square jail = new GoToJailSquare(null);
+        assertEquals("GoToJail", jail.getName());
     }
 
     @Test
