@@ -2,7 +2,7 @@ package ch.heigvd.gen.monopoly.board.square;
 
 import ch.heigvd.gen.monopoly.Player;
 import ch.heigvd.gen.monopoly.board.Board;
-import ch.heigvd.gen.monopoly.pieces.Die;
+import ch.heigvd.gen.monopoly.pieces.Cup;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -13,11 +13,9 @@ public class SquareTest {
     @BeforeEach
     public void initPlayer() {
         Board b = new Board();
-        Die[] dice = new Die[2];
-        dice[0] = new Die();
-        dice[1] = new Die();
+        Cup cup = new Cup(2);
 
-        p = new Player("Player0", b.getSquare(0), b, dice);
+        p = new Player("Player0", b.getSquare(0), b, cup);
     }
 
     @Test
