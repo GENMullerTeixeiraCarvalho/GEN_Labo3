@@ -4,6 +4,7 @@ import ch.heigvd.gen.monopoly.Player;
 
 /**
  * Representation of the income tax square for a Monopoly game
+ * @author Müller Robin, Teixeira Carvalho Stéphane
  */
 public class IncomeTaxSquare extends Square {
     /**
