@@ -37,10 +37,14 @@ public class Player {
      * Simulate the turn of the player
      */
     public void takeTurn() {
+        System.out.println(String.format("%s is now playing (%d$)", this.name, this.getNetWorth()));
+
         int fvTot = 0;
 
         cup.roll();
         fvTot = cup.getTotal();
+
+        System.out.println(String.format("Got a %s", fvTot));
 
         Square oldLoc = piece.getLocation();
         try {
@@ -50,6 +54,7 @@ public class Player {
                 System.out.println("Impossible to get the new Square");
             } else {
                 //Set the new location of the piece
+                System.out.println(String.format("Moving from %s to %s", oldLoc.getName(), newLoc.getName()));
                 piece.setLocation(newLoc);
                 
                 newLoc.landedOn(this);
@@ -57,6 +62,7 @@ public class Player {
         } catch(IllegalArgumentException ex){
             System.out.println(ex.toString());
         }
+        System.out.println(String.format("%s ends his turn (%d$)", this.name, this.getNetWorth()));
     }
 
     /**
