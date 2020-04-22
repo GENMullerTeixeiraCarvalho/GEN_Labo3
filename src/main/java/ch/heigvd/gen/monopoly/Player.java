@@ -89,6 +89,10 @@ public class Player {
         this.cash -= cashToRemove;
     }
 
+    /**
+     * Set the location of the player by moving his piece
+     * @param s Square to move the player to
+     */
     public void setLocation(Square s) {
         piece.setLocation(s);
     }
