@@ -46,7 +46,9 @@ public class MGame {
      * Function that will play the game
      */
     public void playGame(){
+        System.out.println("Starting a game");
         while(roundCnt < NB_ROUNDS){
+            System.out.println(String.format("\n------ Beginning of round %d ------", roundCnt + 1));
             playRound();
             roundCnt++;
         }
@@ -58,8 +60,14 @@ public class MGame {
     private void playRound(){
         //Each player take one turn
         for(int i = 0; i < players.length; i++){
+            System.out.println("\n----- New round -----");
             players[i].takeTurn();
         }
     }
 
+    public static void main(String[] args) {
+        final int NB_PLAYERS = 4;
+        MGame mGame = new MGame(NB_PLAYERS);
+        mGame.playGame();
+    }
 }
