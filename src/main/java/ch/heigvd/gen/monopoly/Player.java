@@ -51,6 +51,8 @@ public class Player {
             } else {
                 //Set the new location of the piece
                 piece.setLocation(newLoc);
+                
+                newLoc.landedOn(this);
             }
         } catch(IllegalArgumentException ex){
             System.out.println(ex.toString());
