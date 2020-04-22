@@ -22,7 +22,7 @@ public class PlayerTest {
 
     @Test
     public void testInitialCash() {
-        assertEquals(p.getCash(), 1500);
+        assertEquals(p.getNetWorth(), 1500);
     }
 
     @ParameterizedTest
@@ -37,7 +37,7 @@ public class PlayerTest {
     @ValueSource (ints = {0, -1, -100})
     public void testInvalidRemoveCash(int amount) {
         assertThrows(IllegalArgumentException.class, () -> {
-            p.removeCash(amount);
+            p.reduceCash(amount);
         });
     }
 
@@ -46,14 +46,21 @@ public class PlayerTest {
     public void testAddCash(int amount) {
         p.addCash(amount);
 
-        assertEquals(p.getCash(), 1500 + amount);
+        assertEquals(p.getNetWorth(), 1500 + amount);
     }
 
     @ParameterizedTest
     @ValueSource (ints = {100, 200, 250, 1500, 2000})
     public void testRemoveCash(int amount) {
-        p.removeCash(amount);
+        p.reduceCash(amount);
 
-        assertEquals(p.getCash(), 1500 - amount);
+        assertEquals(p.getNetWorth(), 1500 - amount);
+    }
+
+    @Test
+    public void testGetNetWorth() {
+        assertEquals(p.getNetWorth(), 1500);
+        p.reduceCash(1000);
+        assertEquals(p.getNetWorth(), 1500 - 1000);
     }
 }

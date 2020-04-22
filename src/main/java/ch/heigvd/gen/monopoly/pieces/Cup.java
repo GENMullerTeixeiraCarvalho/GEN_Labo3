@@ -37,7 +37,7 @@ public class Cup {
     public int getTotal(){
         int fvTot = 0;
         for(int i = 0; i < dice.length; i++){
-            fvTot = dice[i].getFaceValue();
+            fvTot += dice[i].getFaceValue();
         }
         return fvTot;
     }
