@@ -19,7 +19,7 @@ public class BoardTest {
     public void testSquareSpecialNames(){
         assertEquals("Go", board.getSquare(0).getName());
         assertEquals("IncomeTax", board.getSquare(4).getName());
-        assertEquals("Jail", board.getSquare(30).getName());
+        assertEquals("GoToJail", board.getSquare(30).getName());
     }
 
     @Test
