@@ -56,6 +56,8 @@ public class Player {
                 //Set the new location of the piece
                 System.out.println(String.format("Moving from %s to %s", oldLoc.getName(), newLoc.getName()));
                 piece.setLocation(newLoc);
+                
+                newLoc.landedOn(this);
             }
         } catch(IllegalArgumentException ex){
             System.out.println(ex.toString());
@@ -64,10 +66,10 @@ public class Player {
     }
 
     /**
-     * Get the current cash of the player
+     * Get the current net worth (currently only cash) of the player
      * @return int that is the current cash of the player
      */
-    public int getCash() {
+    public int getNetWorth() {
         return cash;
     }
 
@@ -88,7 +90,7 @@ public class Player {
      * @param cashToRemove int that is the amount of money to remove
      * @throws IllegalArgumentException if cashToAdd is below or egal to 0
      */
-    public void removeCash(int cashToRemove) {
+    public void reduceCash(int cashToRemove) {
         if (cashToRemove <= 0)
             throw new IllegalArgumentException("cashToRemove must be a positive higher than 0 integer");
 
