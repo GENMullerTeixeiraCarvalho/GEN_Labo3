@@ -60,14 +60,12 @@ public class Player {
     }
 
     /**
-     * Get the current cash of the player
+     * Get the current net worth (currently only cash) of the player
      * @return int that is the current cash of the player
      */
-    public int getCash() {
+    public int getNetWorth() {
         return cash;
     }
-
-    public int getNetWorth() { return getCash(); }
 
     /**
      * Add money to the cash of the player

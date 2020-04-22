@@ -22,7 +22,7 @@ public class PlayerTest {
 
     @Test
     public void testInitialCash() {
-        assertEquals(p.getCash(), 1500);
+        assertEquals(p.getNetWorth(), 1500);
     }
 
     @ParameterizedTest
@@ -46,7 +46,7 @@ public class PlayerTest {
     public void testAddCash(int amount) {
         p.addCash(amount);
 
-        assertEquals(p.getCash(), 1500 + amount);
+        assertEquals(p.getNetWorth(), 1500 + amount);
     }
 
     @ParameterizedTest
@@ -54,7 +54,7 @@ public class PlayerTest {
     public void testRemoveCash(int amount) {
         p.reduceCash(amount);
 
-        assertEquals(p.getCash(), 1500 - amount);
+        assertEquals(p.getNetWorth(), 1500 - amount);
     }
 
     @Test

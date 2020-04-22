@@ -42,7 +42,7 @@ public class SquareTest {
 
         Square go = new GoSquare();
         go.landedOn(p);
-        assertEquals(p.getCash(), cash);
+        assertEquals(p.getNetWorth(), cash);
     }
 
     @Test
@@ -51,16 +51,16 @@ public class SquareTest {
 
         IncomeTaxSquare tax = new IncomeTaxSquare();
         tax.landedOn(p);
-        assertEquals(p.getCash(), 1500 - (1500 * 0.1));
+        assertEquals(p.getNetWorth(), 1500 - (1500 * 0.1));
     }
 
     @Test
     public void testIncomeSquareLandedOnMaxAmount() {
         p.addCash(1500);
-        final int initialCash = p.getCash();
+        final int initialCash = p.getNetWorth();
 
         IncomeTaxSquare tax = new IncomeTaxSquare();
         tax.landedOn(p);
-        assertEquals(p.getCash(), initialCash - 200);
+        assertEquals(p.getNetWorth(), initialCash - 200);
     }
 }
